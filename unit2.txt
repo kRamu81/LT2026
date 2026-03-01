@@ -1,0 +1,165 @@
+UNIT 2: Spring Boot Project Setup
+
+
+1️ JDK Installation and Setup
+JDK :
+   JDK (Java Development Kit) is required to:
+      - Compile Java code
+      - Run Java applications
+
+Spring Boot requires:
+👉 JDK 17 or above (recommended)
+
+ Steps to Install JDK
+        -> Download JDK from official website (Oracle or OpenJDK)
+ Install it
+ Set Environment Variable:
+     -> Set JAVA_HOME
+     -> Add bin folder to Path
+
+ Verify Installation
+
+Open command prompt and type:
+java -version
+javac -version
+
+If version is displayed → Installation successful 
+
+
+
+2️ IDE Setup (IntelliJ IDEA)
+
+IDE : IDE = Integrated Development Environment
+Used to write, run, and manage code.
+
+Popular IDEs:
+IntelliJ IDEA ✅ (Recommended)
+Eclipse
+VS Code
+
+ Steps to Setup IntelliJ
+Download IntelliJ IDEA (Community Edition is enough)
+Install
+Install required plugins (if needed)
+Configure JDK in:
+File → Project Structure → SDK
+
+
+
+3️ . Spring Initializr
+ Spring Initializr:
+        - Spring Initializr is a tool used to generate a Spring Boot project.
+
+👉 It automatically creates:
+Project structure
+Dependencies
+Configuration files
+
+You Can Access It:
+https://start.spring.io
+Inside IntelliJ
+Spring Tool Suite
+
+🔹 Important Fields in Initializr
+
+Project: Maven / Gradle
+Language: Java
+Spring Boot Version : 4.0.2
+Group: com.example
+Artifact: demo
+Dependencies: Spring Web , Spring Data JPA , MySQL Driver , Lombok
+
+Click → Generate → Download project.
+
+
+
+4️ . Creating First Spring Boot Application
+
+After generating project:
+
+Open in IntelliJ.
+
+Main class looks like this:
+
+@SpringBootApplication
+public class DemoApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(DemoApplication.class, args);
+    }
+}
+
+This is the starting point of the application.
+
+
+
+
+5️ .Project Folder Structure
+
+When project is created, structure looks like:
+
+demo
+ └── src
+     └── main
+         ├── java
+         │    └── com.example.demo
+         │         └── DemoApplication.java
+         └── resources
+              ├── application.properties
+              ├── static
+              ├── templates
+ └── pom.xml
+
+🔹 Important Files
+✅ src/main/java  : Contains Java source code.
+✅ src/main/resources
+    Contains:
+            - application.properties
+            - static files (CSS, JS)
+            - templates (HTML)
+✅ pom.xml
+    Contains:
+            - Project dependencies
+            - Spring Boot version
+            - Plugins
+
+
+
+6️ Running Spring Boot Application
+There are 3 ways:
+1️ Run from IDE
+       Right click → Run DemoApplication
+2️ Using Maven
+       mvn spring-boot:run
+3️ Using JAR file
+       java -jar demo.jar
+
+What Happens When You Run?
+Spring Container starts
+Auto Configuration runs
+Embedded Tomcat starts
+
+Application runs on:  "http://localhost:8080"
+
+
+
+
+7️ . Understanding @SpringBootApplication
+This is the most important annotation.
+
+@SpringBootApplication
+            - It is a combination of:
+                    >@Configuration
+                    >@EnableAutoConfiguration
+                    >@ComponentScan
+🔹 1️ @Configuration  : Marks class as configuration class.
+🔹 2️ @EnableAutoConfiguration  : Enables automatic configuration.
+🔹 3️ @ComponentScan  : Scans current package and sub-packages for:
+
+@Component
+@Service
+@Repository
+@Controller
+
+🔹 Why Important?
+Without @SpringBootApplication:
+Spring Boot application will not start properly.
