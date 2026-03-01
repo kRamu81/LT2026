@@ -1,0 +1,73 @@
+Lecture 1 : Introduction to SpringBoot
+
+Spring Framework:
+  > Spring is an open source java Framework used to Build enterprise applications.
+  > make java application and loosely coupled & easy to maintain.
+  core concepts :
+  - Ioc (Inversion of control)
+  - Di (Dependency Injection)
+  - Aop
+  - Spring MVC
+
+Spring manage object creation and dependency injection automatically
+
+2 . Problems with Traditional spring?
+  > Manual bean configuration
+  > Large Xml configurations
+  > time consuming project setup
+  > install external server(tomcat)
+ -> main purpose development is slow & complex.
+
+3. SpringBoot
+•	It is a Java Framework
+•	It removes configuration headache (auto configuration)
+•	Runs using embedded Tomcat server
+•	Automatically connects to database (if configured properly)
+•	Used to build REST APIs and Microservices
+
+4 . Spring                         vs              SpringBoot
+ Manual Configurations                           Auto configurations
+ xml based setup                                 Minimal configurations
+ External server needed                          Embedded server
+ Complex dependices management                   starter dependeices
+
+5. Advantages :
+•Fast development
+•Production ready
+•Easy REST API development
+•Less configuration
+•Microservices support
+
+6. Auto Configurations :
+ > Springboot automatically configure springboot application based on jar dependices
+        - dependices in classpath
+        - Application properties
+     ex: @EnableAutoConfiguration
+         @SpringBootApplication
+         @Configuration  -> used to define configuration class Manually.
+
+Example:
+If you add: "spring-boot-starter-web"
+Spring Boot automatically configures:
+DispatcherServlet
+Embedded Tomcat
+Jackson (JSON)
+Spring MVC
+
+7 . Starter Dependices
+Starter Dependencies are predefined dependency packages provided by Spring Boot.
+ >Spring Web (web)
+ >Spring Data JPA (sql) etc ...
+ >My SQl Driver (sql)
+ > Lombok (sql)
+
+Instead of adding 10 dependencies ,add 1 starter
+
+8 . Embedded Servers:
+Springboot provides tomcat,jetty,Undertow
+-  No need to install Tomcat separately.
+just run : main() method
+
+application start with embedded server
+
+
